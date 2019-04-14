@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="musical.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merienda:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<script src='sql.js'></script>
+
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body { padding-top: 70px; }
+
+        #bottom_bar {
+            width: 100%;
+            background-color: black;
+            text-align : center;
+            color  : white;
+            font-family: 'Quicksand', sans-serif;
+            font-size : 12px;
+            margin-top : 250px;
+            padding-top: 10px;
+            padding-bottom:10px;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: black;
+            overflow: auto;
+            position: fixed; /* Set the navbar to fixed position */
+            top: 0; /* Position the navbar at the top of the page */
+            z-index:1;
+        }
+
+        .navbar a {
+            float: left;
+            color: white;
+            padding-top:25px;
+            padding-bottom:25px;
+            text-decoration: none;
+            font-size: 15px;
+            width: 20%; /* Four links of equal widths */
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .navbar a:hover {
+            color: #afacac;
+        }
+
+        .header {
+            color: black;
+            font-family: 'Merienda', cursive;
+            text-align: center;
+            font-size:45px;
+            padding-top:150px;
+            margin-bottom:20px;
+        }
+
+        #title {
+            color: black;
+            font-family: 'Merienda', cursive;
+            text-align: center;
+            font-size:80px;
+            padding-top:5px;
+            padding-bottom:45px;
+        }
+
+        .sub_header {
+            color: black;
+            font-family: 'Merienda', cursive;
+            text-align: left;
+            font-size:25px;
+            padding-top:5px;
+            padding-bottom:45px;
+        }
+
+        .container {
+            margin-top:50px;
+            width : 100%;
+            background-color:white;
+            padding-left:5%;
+        }
+
+        .cards {
+            width: 75%;
+            background-color: white;
+            margin-left : 8%;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .search_bar {
+            width: 80%;
+            height : 55px;
+            background-color: white;
+            overflow: auto;
+            margin-left: 10%;
+            margin-top : 100px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 15px;
+        }
+
+        .search_bar a {
+            float: left;
+            color: black;
+            padding-top:10px;
+            text-decoration: none;
+            font-size: 15px;
+            width: 25%; /* Four links of equal widths */
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="navbar">
+    <a id="home" href='./website.html'>HOME</a>
+    <a id="about" href='./website.html'>ABOUT</a>
+    <a id="match" href='./website.html'>MATCH</a>
+    <a id="browse" href='./browse.html'>BROWSE</a>
+    <a id="ticket">TICKETS</a>
+</div>
+
+<div class="header">Check Out What</div>
+<div class="header" style="padding-top:0px;"> Musicals Are In Theater Now!</div>
+
+<div class="search_bar">
+    <a>
+        <div id="filter_location">
+            <p style="font-family: 'Quicksand', sans-serif;">Filter by location:</p>
+            <select id="select_location" style="width:40%;">
+                <option>---</option>
+                <option style="font-family: 'Quicksand', sans-serif;">London</option>
+                <option style="font-family: 'Quicksand', sans-serif;">New York City</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Off Broadway</option>
+            </select>
+
+        </div>
+    </a>
+    <a>
+        <div id="filter_type">
+            <p style="font-family: 'Quicksand', sans-serif;">Filter by type:</p>
+            <select id="select_type" style="width:40%;">
+                <option>---</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Comedy</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Disney</option>
+                <option style="font-family: 'Quicksand', sans-serif;">History</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Horror</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Magic</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Romance</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Rock</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Teen</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Tragedy</option>
+            </select>
+        </div>
+    </a>
+    <a>
+        <div id="filter_age">
+            <p style="font-family: 'Quicksand', sans-serif;">Filter by age range:</p>
+            <select id="select_age" style="width:40%;">
+                <option>---</option>
+                <option style="font-family: 'Quicksand', sans-serif;">5 - 10</option>
+                <option style="font-family: 'Quicksand', sans-serif;">11 - 18</option>
+                <option style="font-family: 'Quicksand', sans-serif;">18+</option>
+            </select>
+        </div>
+    </a>
+    <a>
+        <div id="filter_price">
+            <p style="font-family: 'Quicksand', sans-serif;">Filter by price:</p>
+            <select id="select_price" style="width:40%;">
+                <option>---</option>
+                <option style="font-family: 'Quicksand', sans-serif;">under $50</option>
+                <option style="font-family: 'Quicksand', sans-serif;">$50 - $100</option>
+                <option style="font-family: 'Quicksand', sans-serif;">$100 - $150</option>
+                <option style="font-family: 'Quicksand', sans-serif;">$150 - $200</option>
+                <option style="font-family: 'Quicksand', sans-serif;">$200+</option>
+            </select>
+        </div>
+    </a>
+
+</div>
+
+<div class="container">
+    <div class="cards">
+        <p class="sub_header"></p>
+        <p name="description"></p>
+    </div>
+    <div class="cards">
+        <p class="sub_header"></p>
+        <p name="description"></p>
+    </div>
+    <div class="cards">
+        <p class="sub_header"></p>
+        <p name="description"></p>
+    </div>
+    <div class="cards">
+        <p class="sub_header"></p>
+        <p name="description"></p>
+    </div>
+    <div class="cards">
+        <p class="sub_header"></p>
+        <p name="description"></p>
+    </div>
+</div>
+<br>
+<br>
+<div id="bottom_bar">
+    <p> Created 2019 by Georgina Xu. Visit broadway.org for more information.</p>
+</div>
+</body>
+
+<script>
+    function displayImage() {
+        var title = document.getElementById("title");
+        var image;
+        if(title.value().contains("phantom")) {
+            image = document.getElementById("phantom");
+        }
+        else if (title.value().contains("harry")) {
+            image = document.getElementById("hp");
+        }
+        image.style.display = "block";
+    }
+</script>
+</html>
