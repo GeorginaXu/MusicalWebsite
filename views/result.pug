@@ -1,6 +1,7 @@
 doctype html
 html(lang='en')
   head
+    script(src='musical.js')
     script(src='http://code.jquery.com/jquery-1.11.3.min.js')
     script(src='http://code.jquery.com/ui/1.11.4/jquery-ui.min.js')
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js', type='text/javascript')
@@ -11,23 +12,13 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css?family=Merienda:400,700', rel='stylesheet')
     link(href='https://fonts.googleapis.com/css?family=Merienda', rel='stylesheet')
     link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet')
+    script(src='sql.js')
     style.
       * {
       margin: 0;
       padding: 0;
       }
       body { padding-top: 70px; }
-      .container {
-      margin-top:130px;
-      width : 60%;
-      background-color:white;
-      padding-top: 20px;
-      padding-left:10px;
-      padding-right:20px;
-      text-align:center;
-      margin-left:21%;
-      margin-bottom:100px;
-      }
       #bottom_bar {
       width: 100%;
       background-color: black;
@@ -61,116 +52,93 @@ html(lang='en')
       .navbar a:hover {
       color: #afacac;
       }
-      #header {
+      .header {
       color: black;
       font-family: 'Merienda', cursive;
       text-align: center;
       font-size:45px;
-      padding-top:100px;
+      padding-top:150px;
       margin-bottom:20px;
       }
-      #sub_header {
+      #title {
       color: black;
       font-family: 'Merienda', cursive;
       text-align: center;
+      font-size:80px;
+      padding-top:5px;
+      padding-bottom:45px;
+      }
+      .sub_header {
+      color: black;
+      font-family: 'Merienda', cursive;
+      text-align: left;
       font-size:25px;
       padding-top:5px;
       padding-bottom:45px;
       }
-      * {box-sizing:border-box}
-      /* Slideshow container */
-      .slideshow-container {
-      max-width: 900px;
-      position: relative;
-      margin: auto;
+      .container {
+      margin-top:50px;
+      width : 100%;
+      background-color:white;
+      padding-left:5%;
       }
-      /* Hide the images by default */
-      .mySlides {
-      display: none;
-      }
-      /* The dots/bullets/indicators */
-      .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-      }
-      .active, .dot:hover {
-      background-color: #717171;
-      }
-      /* Fading animation */
-      .fade {
-      opacity:0;
-      animation-name: fade;
-      animation-duration: 9s;
-      animation-iteration-count: infinite;
-      left:0;
-      right:0;
-      }
-      @keyframes fade {
-      0%   { opacity: 0; }
-      11.11%   { opacity: 1; }
-      33.33%  { opacity: 1; }
-      55.55%  { opacity: 0; }
-      100% { opacity: 0; }
-      }
-      #quiz_box {
-      width : 70%;
-      margin-top: 180px;
-      margin-left: 15%;
-      height : 500px;
-      position : relative;
-      }
-      #text_block {
-      position : absolute;
-      top   : 150px;
-      left  : 260px;
-      height  : 350px;
-      width  : 400px;
-      background-color: #161616;
-      color: white;
-      padding-top: 50px;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-bottom : 50px;
-      text-align: center;
-      font-family: 'Raleway', sans-serif;
-      }
-      .button {
-      border: 2px solid white;
-      background-color: #161616;
-      color: white;
-      padding-left: 5px;
-      padding-top : 5px;
-      padding-bottom : 5px;
-      padding-right : 5px;
-      font-size: 15px;
-      cursor: pointer;
-      width : 20%;
-      }
-      .button:hover {
+      .cards {
+      width: 80%;
       background-color: white;
-      color: #161616;
+      margin-left : 5%;
+      margin-bottom: 100px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-align: center;
       }
   body
     .navbar
-      a#home(href='#header') HOME
-      a#about(href='#about_section') ABOUT
-      a#match(href='#quiz_box') MATCH
-      a#browse BROWSE
-      a#ticket TICKETS
-    div
-      p#header  Welcome to G's Musical Land
-      p#sub_header  ~ Find Your Soul Musical ~
+      a#home(href='./website.html') HOME
+      a#about(href='./website.html') ABOUT
+      a#match(href='./website.html') MATCH
+      a#browse(href='./browse.html') BROWSE
+      a#ticket(href='./tickets.html') TICKETS
+    .header Your Top 1
+    .header(style='padding-top:0px;') Matching Musical is:
     .container
-      a(name='about_section', style="font-family: 'Quicksand', sans-serif;color:black;font-size:35px;")  ABOUT
-      br
-      br
-      br
-      p(style="font-family: 'Quicksand', sans-serif; font-size:20px;line-height:30px;") Here are the filtered titles #{Titles}!
+      img#phanom(src='./images/phantom.jpg', style='width:100%; height:100%;display:none;')
+      img#hp(src='./images/harrypotter.jpg', style='width:100%; height:100%;display:none;')
+      img#hamilton(src='./images/hamilton.jpg', style='width:100%; height:100%;display:none;')
+      img#cats(src='./images/cats.jpg', style='width:100%; height:100%;display:none;')
+      img#frozen(src='./images/frozen.jpg', style='width:100%; height:100%;display:none')
+      img#lionking(src='./images/lionking.jpg', style='width:100%; height:100%;display:none')
+    #title(onload='displayImage()')
+    br
+    br
+    .container
+      .sub_header Other musicals that match your interests
+      .cards
+        p.sub_header
+        p(name='description')
+      .cards
+        p.sub_header
+        p(name='description')
+      .cards
+        p.sub_header
+        p(name='description')
+      .cards
+        p.sub_header
+        p(name='description')
+      .cards
+        p.sub_header
+        p(name='description')
+    br
+    br
     #bottom_bar
       p  Created 2019 by Georgina Xu. Visit broadway.org for more information.
+    script.
+      function displayImage() {
+      var title = document.getElementById("title");
+      var image;
+      if(title.value().contains("phantom")) {
+      image = document.getElementById("phantom");
+      }
+      else if (title.value().contains("harry")) {
+      image = document.getElementById("hp");
+      }
+      image.style.display = "block";
+      }
