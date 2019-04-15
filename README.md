@@ -15,3 +15,38 @@
    After starting the server, open one of your web browsers (i.e. Chrome) and go to ```localhost:8080```. You will see the front page of my website displayed.
    
    
+
+## Current Functionality
+
+   Currently, only the front-end of all webpages were implemented. The Match button in the navigation bar will take users to the matching quiz. The matching quiz webpage is not connected to the sqlite database yet, so it cannot query data based on user's answers. The Browse button in the navigation bar will take users to browse.html, which allows users to browse all musicals that are currently in theature. The Ticket button in the navigation bar will take users to tickets.html, which provides users the link to book tickets for their chosen musical. 
+   
+   In addition, the sqlite database was also built and the file is called **Musicals.db**. The database contains five tables:
+   
+   - Date 
+   - London
+   - OnBroadway
+   - OffBroadway
+   - Price 
+   
+   The **Date** table contains the time period that a musical is going to be in theatuer; it has 3 columns: 
+   - Name 
+   - Start Date
+   - End Date 
+   
+   The **London** table contains the information for all musicals that are on show in London West End; it has 8 columns: 
+   - Title
+   - Type
+   - Description
+   - Duration
+   - Lowest Price
+   - Highest Price
+   - Booking Link
+   - Age Appropriate
+   
+   The **OnBroadway** table contains the information for all musicals that are on show in NYC; it has the same columns as table London. The **OffBroadway** table contains the information for all musicals that are on show in other cities in the US. The **Price** table contains the price range for all musicals in the database.
+   
+
+
+## Future Direction
+
+   
