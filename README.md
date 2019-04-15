@@ -48,7 +48,12 @@
 
 ### Demo
 
-![](demo1_04:14.gif)
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo1_04:14.gif)
+
+
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo2_04:14.gif)
+
+
 
 ## Future Direction
 
