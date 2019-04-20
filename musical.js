@@ -1,6 +1,7 @@
 
 var quizContainer = document.getElementById('container');
 var submitButton = document.getElementById('submit');
+var quiz_result = {};
 
 const myQuestions = [
   {
@@ -33,17 +34,19 @@ const myQuestions = [
     question: "What age range are you in?",
       answers: {
         a: "1 - 10",
-        b: "10 - 20",
-        c: "20+",
+        b: "10 - 15",
+        c: "15 - 20",
+        d: "20+",
       }
    },
    {
-       question: "How much budget would you allocate for the ticket?",
+       question: "What is the maximum amount of money you are willing to pay for a ticket?",
          answers: {
-           a: "under $50",
-           b: "$50 - $100",
-           c: "$100 - $200",
-           d: "$200+",
+           a: "$50",
+           b: "$100",
+           c: "$150",
+           d: "$200",
+           e: "$200+",
          }
     }
 ];
@@ -85,8 +88,7 @@ function buildQuiz() {
     });
 }
 
-var quiz_result = {};
-
+/* Build a dictionary that contains the score for each musical. */
 function scoreBoard() {
     let names = [];
     let url="http://127.0.0.1:8080/all";
@@ -102,14 +104,15 @@ function scoreBoard() {
         for (var i = 0; i < names.length; i++){
             var name = names[i];
             if(!(name in quiz_result) && (name != "") && (name != ",")) {
-                quiz_result[name] = 0;
+                this.quiz_result[name] = 0;
             }
         }
-        console.log('quiz result:', quiz_result);
+        console.log('quiz result:', this.quiz_result);
     });
 
 }
 
+/* Add scores for musicals that have type Disney. */
 function disney() {
     let names = [];
     let url="http://127.0.0.1:8080/disney";
@@ -134,6 +137,7 @@ function disney() {
     });
 }
 
+/* Add scores for musicals that don't have type Disney. */
 function no_disney() {
         let names = [];
         let url="http://127.0.0.1:8080/no_disney";
@@ -158,6 +162,7 @@ function no_disney() {
         });
 }
 
+/* Add scores for musicals that have type Romance. */
 function romance() {
         let names = [];
         let url="http://127.0.0.1:8080/romance";
@@ -183,6 +188,7 @@ function romance() {
 
 }
 
+/* Add scores for musicals that have type Comedy. */
 function comedy() {
         let names = [];
         let url="http://127.0.0.1:8080/comedy";
@@ -208,6 +214,7 @@ function comedy() {
 
 }
 
+/* Add scores for musicals that have type Crime. */
 function crime() {
         let names = [];
         let url="http://127.0.0.1:8080/crime";
@@ -233,6 +240,7 @@ function crime() {
 
 }
 
+/* Add scores for musicals that have type History. */
 function history() {
         let names = [];
         let url="http://127.0.0.1:8080/history";
@@ -258,6 +266,7 @@ function history() {
 
 }
 
+/* Add scores for musicals that have type Horror. */
 function horror() {
         let names = [];
         let url="http://127.0.0.1:8080/horror";
@@ -283,6 +292,7 @@ function horror() {
 
 }
 
+/* Add scores for musicals that have type Magic. */
 function magic() {
         let names = [];
         let url="http://127.0.0.1:8080/magic";
@@ -308,6 +318,7 @@ function magic() {
 
 }
 
+/* Add scores for musicals that are in NYC. */
 function nyc() {
         let names = [];
         let url="http://127.0.0.1:8080/nyc";
@@ -332,6 +343,7 @@ function nyc() {
         });
 }
 
+/* Add scores for musicals that are in other cities in US. */
 function other_cities() {
         let names = [];
         let url="http://127.0.0.1:8080/other_cities";
@@ -356,6 +368,7 @@ function other_cities() {
         });
 }
 
+/* Add scores for musicals that are in London. */
 function london() {
         let names = [];
         let url="http://127.0.0.1:8080/london";
@@ -380,9 +393,10 @@ function london() {
         });
 }
 
+/* Add scores for musicals that are for age under 10. */
 function ten() {
         let names = [];
-        let url="http://127.0.0.1:8080/london";
+        let url="http://127.0.0.1:8080/ten";
         fetch(url, {cache: "no-cache"}).then(function(response){
             return response.json();
         })
@@ -402,4 +416,224 @@ function ten() {
             }
             console.log('quiz result:', quiz_result);
         });
+}
+
+/* Add scores for musicals that are for age under 15. */
+function fifteen() {
+        let names = [];
+        let url="http://127.0.0.1:8080/fifteen";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', quiz_result);
+        });
+}
+
+/* Add scores for musicals that are for age under 20. */
+function twenty() {
+        let names = [];
+        let url="http://127.0.0.1:8080/twenty";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', quiz_result);
+        });
+}
+
+/* Add scores for musicals that are for age above 20. */
+function above_twenty() {
+        let names = [];
+        let url="http://127.0.0.1:8080/above_twenty";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', quiz_result);
+        });
+}
+
+/* Add scores for musicals that have minimum price below $50. */
+function fifty() {
+        let names = [];
+        let url="http://127.0.0.1:8080/fifty";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', quiz_result);
+        });
+}
+
+/* Add scores for musicals that have minimum price below $100. */
+function hundred() {
+        let names = [];
+        let url="http://127.0.0.1:8080/hundred";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', quiz_result);
+        });
+}
+
+
+/* Add scores for musicals that have maximum price below $150. */
+function onefifty() {
+        let names = [];
+        let url="http://127.0.0.1:8080/onefifty";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    this.quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', this.quiz_result);
+        });
+}
+
+/* Add scores for musicals that have maximum price below $200. */
+function two_hundred() {
+        let names = [];
+        let url="http://127.0.0.1:8080/two_hundred";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    this.quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', this.quiz_result);
+        });
+}
+
+/* Add scores for musicals that have maximum price above $200. */
+function above_two_hundred() {
+        let names = [];
+        let url="http://127.0.0.1:8080/above_two_hundred";
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    var score = quiz_result[name];
+                    this.quiz_result[name] = score + 1;
+                }
+            }
+            console.log('quiz result:', this.quiz_result);
+        });
+}
+
+function sortQuizResult() {
+    var top1musical = "Sorry There is No Musical that Matches Your Interests";
+    var top1score = 0;
+    for (var key in quiz_result) {
+        if (quiz_result[key] > top1score) {
+            top1musical = key;
+            top1score = this.quiz_result[key];
+        }
+    }
+    console.log(top1musical);
+    return top1musical;
+}
+
+
+function getResult() {
+    top1musical = sortQuizResult();
+    window.location = "quiz_result.html?title=" + top1musical;
 }
