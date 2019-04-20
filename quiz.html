@@ -225,22 +225,24 @@
     </div>
     <div id="q4" class="container">
         <div id="question4"></div>
-        <label id="a12" onclick="location.href='./ten';"></label>
-        <label id="a13" onclick="location.href='./twenty';"></label>
-        <label id="a14" onclick="location.href='./above_twenty';"></label>
+        <label id="a12" onclick="ten()"></label>
+        <label id="a13" onclick="fifteen()"></label>
+        <label id="a14" onclick="twenty()"></label>
+        <label id="a15" onclick="above_twenty()"></label>
     </div>
     <div id="q5" class="container">
         <div id="question5"></div>
-        <label id="a15" onclick="location.href='./fifty';"></label>
-        <label id="a16" onclick="location.href='./hundred';"></label>
-        <label id="a17" onclick="location.href='./two_hundred';"></label>
-        <label id="a18" onclick="location.href='./above_two_hundred';"></label>
+        <label id="a16" onclick="fifty()"></label>
+        <label id="a17" onclick="hundred()"></label>
+        <label id="a18" onclick="onefifty()"></label>
+        <label id="a19" onclick="two_hundred()"></label>
+        <label id="a20" onclick="above_two_hundred()"></label>
     </div>
     <script>buildQuiz();</script>
     <script>scoreBoard();</script>
 </div>
 
-<button class="button" id="submit" onclick="location.href='./result';">
+<button class="button" id="submit" onclick="getResult()">
     Submit
 </button>
 
