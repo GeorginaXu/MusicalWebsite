@@ -1,4 +1,6 @@
-# MusicalWebsite
+# Georgia's Musical Website
+
+created: 04/14/2019
 
 ## Required Module
 
@@ -45,6 +47,14 @@
    
    The **OnBroadway** table contains the information for all musicals that are on show in NYC; it has the same columns as table London. The **OffBroadway** table contains the information for all musicals that are on show in other cities in the US. The **Price** table contains the price range for all musicals in the database.
    
+
+### Demo
+
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo1_04:14.gif)
+
+
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo2_04:14.gif)
+
 
 
 ## Future Direction
