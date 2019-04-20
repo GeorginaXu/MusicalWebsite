@@ -130,7 +130,22 @@
     <img id="frozen" src="./images/frozen.jpg" style="width:100%; height:100%;display:none">
     <img id="lionking" src="./images/lionking.jpg" style="width:100%; height:100%;display:none">
 </div>
-<div id="title" onload="displayImage()"></div>
+<div id="title">
+    <script>
+        var title = window.location.search.split("=")[1];
+        document.getElementById("title").innerHTML = title;
+
+        //Display correct image.
+        var image;
+        if(title.contains("phantom")) {
+            image = document.getElementById("phantom");
+        }
+        else if (title.contains("harry")) {
+            image = document.getElementById("hp");
+        }
+        image.style.display = "block";
+    </script>
+</div>
 <br>
 <br>
 <div class="container">
@@ -162,19 +177,5 @@
     <p> Created 2019 by Georgina Xu. Visit broadway.org for more information.</p>
 </div>
 </body>
-
-<script>
-    function displayImage() {
-        var title = document.getElementById("title");
-        var image;
-        if(title.value().contains("phantom")) {
-            image = document.getElementById("phantom");
-        }
-        else if (title.value().contains("harry")) {
-            image = document.getElementById("hp");
-        }
-        image.style.display = "block";
-    }
-</script>
 
 </html>
