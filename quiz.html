@@ -203,12 +203,41 @@
 </div>
 
 <div id="container">
-    <div id="q1" class="container"></div>
-    <div id="q2" class="container"></div>
-    <div id="q3" class="container"></div>
-    <div id="q4" class="container"></div>
-    <div id="q5" class="container"></div>
+    <div id="q1" class="container">
+        <div id="question1"></div>
+        <label id="a1" onclick="disney();"></label>
+        <label id="a2" onclick="no_disney();"></label>
+    </div>
+    <div id="q2" class="container">
+        <div id="question2"></div>
+        <label id="a3" onclick="romance()"></label>
+        <label id="a4" onclick="comedy()"></label>
+        <label id="a5" onclick="crime()"></label>
+        <label id="a6" onclick="history()"></label>
+        <label id="a7" onclick="horror()"></label>
+        <label id="a8" onclick="magic()"></label>
+    </div>
+    <div id="q3" class="container">
+        <div id="question3"></div>
+        <label id="a9" onclick="nyc()"></label>
+        <label id="a10" onclick="other_cities()"></label>
+        <label id="a11" onclick="london()"></label>
+    </div>
+    <div id="q4" class="container">
+        <div id="question4"></div>
+        <label id="a12" onclick="location.href='./ten';"></label>
+        <label id="a13" onclick="location.href='./twenty';"></label>
+        <label id="a14" onclick="location.href='./above_twenty';"></label>
+    </div>
+    <div id="q5" class="container">
+        <div id="question5"></div>
+        <label id="a15" onclick="location.href='./fifty';"></label>
+        <label id="a16" onclick="location.href='./hundred';"></label>
+        <label id="a17" onclick="location.href='./two_hundred';"></label>
+        <label id="a18" onclick="location.href='./above_two_hundred';"></label>
+    </div>
     <script>buildQuiz();</script>
+    <script>scoreBoard();</script>
 </div>
 
 <button class="button" id="submit" onclick="location.href='./result';">
@@ -224,5 +253,7 @@
     <p> Created 2019 by Georgina Xu. Visit broadway.org for more information.</p>
 </div>
 </body>
+
+
 
 </html>
