@@ -92,7 +92,6 @@ app.get('/all', function(req, res){
                     result.push(row.Title);
                 }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -125,7 +124,6 @@ app.get('/no_disney', function(req, res){
                      result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -142,7 +140,6 @@ app.get('/romance', function(req, res){
                     result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -159,7 +156,6 @@ app.get('/comedy', function(req, res){
                      result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -176,7 +172,6 @@ app.get('/crime', function(req, res){
                      result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -193,7 +188,6 @@ app.get('/history', function(req, res){
                     result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -210,7 +204,6 @@ app.get('/horror', function(req, res){
                     result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -227,7 +220,6 @@ app.get('/magic', function(req, res){
                      result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -244,7 +236,6 @@ app.get('/nyc', function(req, res){
                     result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -261,7 +252,6 @@ app.get('/other_cities', function(req, res){
                     result.push(row.Title);
                  }
             });
-            console.log(result);
             res.send(result);
         } else {
             console.log(err);
@@ -278,6 +268,87 @@ app.get('/london', function(req, res){
                     result.push(row.Title);
                  }
             });
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+app.get('/ten', function(req, res){
+    let result = [];
+    db.all("SELECT Title FROM Musicals WHERE (minAge < 10);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Title) == -1) {
+                    result.push(row.Title);
+                 }
+            });
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+app.get('/fifteen', function(req, res){
+    let result = [];
+    db.all("SELECT Title FROM Musicals WHERE (minAge < 15);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Title) == -1) {
+                    result.push(row.Title);
+                 }
+            });
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+
+app.get('/twenty', function(req, res){
+    let result = [];
+    db.all("SELECT Title FROM Musicals WHERE (minAge < 20);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Title) == -1) {
+                    result.push(row.Title);
+                 }
+            });
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+app.get('/above_twenty', function(req, res){
+    let result = [];
+    db.all("SELECT Title FROM Musicals;", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Title) == -1) {
+                    result.push(row.Title);
+                 }
+            });
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+app.get('/fifty', function(req, res){
+    let result = [];
+    db.all("SELECT Name FROM Price WHERE (LowestPrice < 50);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Name) == -1) {
+                    result.push(row.Name);
+                 }
+            });
             console.log(result);
             res.send(result);
         } else {
@@ -286,5 +357,73 @@ app.get('/london', function(req, res){
         });
 });
 
+app.get('/hundred', function(req, res){
+    let result = [];
+    db.all("SELECT Name FROM Price WHERE (LowestPrice < 100);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Name) == -1) {
+                    result.push(row.Name);
+                 }
+            });
+            console.log(result);
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+app.get('/onefifty', function(req, res){
+    let result = [];
+    db.all("SELECT Name FROM Price WHERE (HighestPrice < 150);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Name) == -1) {
+                    result.push(row.Name);
+                 }
+            });
+            console.log(result);
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+
+app.get('/two_hundred', function(req, res){
+    let result = [];
+    db.all("SELECT Name FROM Price WHERE (HighestPrice < 200);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Title) == -1) {
+                    result.push(row.Name);
+                 }
+            });
+            console.log(result);
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
+
+app.get('/above_two_hundred', function(req, res){
+    let result = [];
+    db.all("SELECT Name FROM Price WHERE (HighestPrice >= 200);", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                 if(result.indexOf(row.Title) == -1) {
+                    result.push(row.Name);
+                 }
+            });
+            console.log(result);
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+        });
+});
 
 server.listen (8080);
