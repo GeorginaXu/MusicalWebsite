@@ -645,3 +645,130 @@ function getResult() {
     window.location = "quiz_result.html?title" + top1musical;
     console.log(top1musical);
 }
+
+/* Fill the description area for a specific musical. */
+function fillDescription(title, index) {
+    var url = "http://127.0.0.1:8080/description"+"/?name="+title;
+
+    fetch(url, {cache: "no-cache"}).then(function(response){
+        return response.json();
+    })
+    .then(function(response) {
+        let description = JSON.stringify(response);
+        description = description.substring(2, description.length-2);
+        document.getElementById("description"+index).innerHTML = description;
+    });
+}
+
+function displayImage(title, image) {
+        if(title.includes("Phantom")) {
+            image.src="./images/phantom.JPG";
+        } else if (title.includes("Harry")) {
+            image.src="./images/harrypotter.JPG";
+        } else if (title.includes("Aladdin")) {
+            image.src="./images/Aladdin.jpg";
+        } else if (title.includes("Mormon")) {
+            image.src="./images/book-of-mormon.jpg";
+        }else if (title.includes("Cats")) {
+            image.src="./images/Cats.jpg";
+        }else if (title.includes("Charlie")) {
+            image.src="./images/Charlie.jpg";
+        }else if (title.includes("Chicago")) {
+            image.src="./images/Chicago.jpeg";
+        }else if (title.includes("Come")) {
+            image.src="./images/come-from-away.jpg";
+        }else if (title.includes("Frozen")) {
+            image.src="./images/Frozen.JPG";
+        }else if (title.includes("Hamilton")) {
+            image.src="./images/Hamilton.JPG";
+        }else if (title.includes("Dolly")) {
+            image.src="./images/hello-dolly.jpg";
+        }else if (title.includes("Kinky")) {
+            image.src="./images/kinky-boots.jpg";
+        }else if (title.includes("Les")) {
+            image.src="./images/les-mis.jpg";
+        }else if (title.includes("Lion")) {
+            image.src="./images/lionking.JPG";
+        }else if (title.includes("Matilda")) {
+            image.src="./images/Matilda.jpg";
+        }else if (title.includes("Mean")) {
+            image.src="./images/mean-girl.png";
+        }else if (title.includes("Saigon")) {
+            image.src="./images/miss-saigon.jpg";
+        }else if (title.includes("Oklahoma")) {
+            image.src="./images/Oklahoma.jpg";
+        }else if (title.includes("Pretty")) {
+            image.src="./images/pretty-woman.jpg";
+        }else if (title.includes("Rock")) {
+            image.src="./images/school-of-rock.jpg";
+        }else if (title.includes("Wicked")) {
+            image.src="./images/wicked.jpg";
+        } else if (title.includes("Fair")) {
+            image.src="./images/my-fair-lady.jpg";
+        }
+}
+
+function browse() {
+
+    var cards = document.createElement('style');
+    cards.type = 'text/css';
+    cards.innerHTML = '.cards { width: 80%; background-color: white; margin-left : 5%; margin-bottom: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }';
+    document.getElementsByTagName('head')[0].appendChild(cards);
+
+    var cardsImg = document.createElement('style');
+    cardsImg.type = 'text/css';
+    cardsImg.innerHTML = '.cards img { width: 35%;height: 90%;margin-left:10px;margin-top:10px;float:left; }';
+    document.getElementsByTagName('head')[0].appendChild(cardsImg);
+
+    var descriptionStyle = document.createElement('style');
+    descriptionStyle.type = 'text/css';
+    descriptionStyle.innerHTML = '.description { width:58%;height: 60%;margin-left: 40%;padding-top: 20px; }';
+    document.getElementsByTagName('head')[0].appendChild(descriptionStyle);
+
+    let names = [];
+    let url="http://127.0.0.1:8080/all";
+    fetch(url, {cache: "no-cache"}).then(function(response){
+        return response.json();
+    })
+    .then(function(response) {
+        names = JSON.stringify(response);
+
+        names = names.substring(2, names.length-1);
+        names = names.split('"');
+        var container = document.getElementById("container");
+
+        for (var i = 0; i < names.length; i++){
+           var name = names[i];
+           console.log(name);
+           if((name != "") && (name != ",")) {
+               var card = document.createElement("div");
+               card.className = "cards";
+               card.style = "height:200px;";
+
+               var image = document.createElement("img");
+               image.className = "cards img";
+               image.id="option"+i;
+               card.appendChild(image);
+
+               var description = document.createElement("div");
+               description.className="description";
+
+               var h1 = document.createElement("h1");
+               h1.id="title"+i;
+               h1.innerHTML = name;
+
+               var des = document.createElement("div");
+               des.id="description"+i;
+               des.style="height:100%;padding-top:5px; overflow:scroll;"
+
+               description.appendChild(h1);
+               description.appendChild(des);
+               card.appendChild(description);
+
+               displayImage(name, image);
+               container.appendChild(card);
+               fillDescription(name, i);
+           }
+        }
+    });
+}
