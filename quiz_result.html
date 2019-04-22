@@ -101,7 +101,7 @@
             width: 80%;
             background-color: white;
             margin-left : 5%;
-            margin-bottom: 100px;
+            margin-bottom: 70px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
@@ -114,63 +114,13 @@
         }
 
         .description {
-            width:60%;
+            width:58%;
+            height: 60%;
             margin-left: 40%;
             padding-top: 20px;
         }
     </style>
 </head>
-
-<script>
-    function displayImage(title, image) {
-        if(title.includes("Phantom")) {
-            image.src="./images/phantom.JPG";
-        } else if (title.includes("Harry")) {
-            image.src="./images/harrypotter.JPG";
-        } else if (title.includes("Aladdin")) {
-            image.src="./images/Aladdin.jpg";
-        } else if (title.includes("Mormon")) {
-            image.src="./images/book-of-mormon.jpg";
-        }else if (title.includes("Cats")) {
-            image.src="./images/Cats.jpg";
-        }else if (title.includes("Charlie")) {
-            image.src="./images/Charlie.jpg";
-        }else if (title.includes("Chicago")) {
-            image.src="./images/Chicago.jpeg";
-        }else if (title.includes("Come")) {
-            image.src="./images/come-from-away.jpg";
-        }else if (title.includes("Frozen")) {
-            image.src="./images/Frozen.JPG";
-        }else if (title.includes("Hamilton")) {
-            image.src="./images/Hamilton.JPG";
-        }else if (title.includes("Dolly")) {
-            image.src="./images/hello-dolly.jpg";
-        }else if (title.includes("Kinky")) {
-            image.src="./images/kinky-boots.jpg";
-        }else if (title.includes("Les")) {
-            image.src="./images/les-mis.jpg";
-        }else if (title.includes("Lion")) {
-            image.src="./images/lionking.JPG";
-        }else if (title.includes("Matilda")) {
-            image.src="./images/Matilda.jpg";
-        }else if (title.includes("Mean")) {
-            image.src="./images/mean-girl.png";
-        }else if (title.includes("Saigon")) {
-            image.src="./images/miss-saigon.jpg";
-        }else if (title.includes("Oklahoma")) {
-            image.src="./images/Oklahoma.jpg";
-        }else if (title.includes("Pretty")) {
-            image.src="./images/pretty-woman.jpg";
-        }else if (title.includes("Rock")) {
-            image.src="./images/school-of-rock.jpg";
-        }else if (title.includes("Wicked")) {
-            image.src="./images/wicked.jpg";
-        } else if (title.includes("Fair")) {
-            image.src="./images/my-fair-lady.jpg";
-        }
-    }
-
-</script>
 
 
 <body>
@@ -179,8 +129,8 @@
     <a id="home" href='./website.html'>HOME</a>
     <a id="about" href='./website.html'>ABOUT</a>
     <a id="match" href='./website.html'>MATCH</a>
-    <a id="browse">BROWSE</a>
-    <a id="ticket">TICKETS</a>
+    <a id="browse" href='./browse.html'>BROWSE</a>
+    <a id="ticket" href='./tickets.html'>TICKETS</a>
 </div>
 
 <div class="header">Your Top 1</div>
@@ -197,7 +147,9 @@
         }
         document.getElementById("title").innerHTML = title;
         var image = document.getElementById("image");
-        displayImage(title, image);
+    </script>
+    <script>
+        displayImage(title, image)
     </script>
 </div>
 <br>
@@ -209,7 +161,7 @@
         <img id="option1" />
         <div class="description">
             <h1 id="title1"></h1>
-            <p id="description1"></p>
+            <div id="description1" style="height:100%;padding-top:5px; overflow:scroll;"></div>
         </div>
             <script>
                 var title = window.location.search.split("=")[2];
@@ -218,7 +170,12 @@
                 }
                 document.getElementById("title1").innerHTML = title;
                 var image = document.getElementById("option1");
-                displayImage(title, image);
+            </script>
+            <script>
+                displayImage(title, image)
+            </script>
+            <script>
+                fillDescription(title, 1)
             </script>
     </div>
 
@@ -226,7 +183,7 @@
             <img id="option2" />
             <div class="description">
                 <h1 id="title2"></h1>
-                <p id="description2"></p>
+                <div id="description2" style="height:100%;padding-top:5px;overflow:scroll;"></div>
             </div>
             <script>
                 var title = window.location.search.split("=")[3];
@@ -235,7 +192,12 @@
                 }
                 document.getElementById("title2").innerHTML = title;
                 var image = document.getElementById("option2");
-                displayImage(title, image);
+            </script>
+            <script>
+                displayImage(title, image)
+            </script>
+            <script>
+                fillDescription(title, 2)
             </script>
         </div>
 
@@ -243,7 +205,7 @@
             <img id="option3" />
             <div class="description">
                 <h1 id="title3"></h1>
-                <p id="description3"></p>
+                <div id="description3" style="height:100%;padding-top:5px;overflow:scroll;"></div>
             </div>
             <script>
                 var title = window.location.search.split("=")[4];
@@ -252,7 +214,12 @@
                 }
                 document.getElementById("title3").innerHTML = title;
                 var image = document.getElementById("option3");
-                displayImage(title, image);
+            </script>
+            <script>
+                displayImage(title, image)
+            </script>
+            <script>
+                fillDescription(title, 3)
             </script>
         </div>
 
@@ -260,7 +227,7 @@
             <img id="option4" />
             <div class="description">
                 <h1 id="title4"></h1>
-                <p id="description4"></p>
+                <div id="description4" style="height:100%; padding-top:5px;overflow:scroll;"></div>
             </div>
             <script>
                 var title = window.location.search.split("=")[5];
@@ -269,7 +236,12 @@
                 }
                 document.getElementById("title4").innerHTML = title;
                 var image = document.getElementById("option4");
-                displayImage(title, image);
+            </script>
+            <script>
+                displayImage(title, image)
+            </script>
+            <script>
+                fillDescription(title, 4)
             </script>
         </div>
 
@@ -277,7 +249,7 @@
         <img id="option5" />
         <div class="description">
             <h1 id="title5"></h1>
-            <p id="description5"></p>
+            <div id="description5" style="height:100%;padding-top:5px;overflow:scroll;"></div>
         </div>
         <script>
                 var title = window.location.search.split("=")[6];
@@ -286,7 +258,12 @@
                 }
                 document.getElementById("title5").innerHTML = title;
                 var image = document.getElementById("option5");
-                displayImage(title, image);
+        </script>
+        <script>
+            displayImage(title, image)
+        </script>
+            <script>
+                fillDescription(title, 5)
             </script>
     </div>
 </div>
