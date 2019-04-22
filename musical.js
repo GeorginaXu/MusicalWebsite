@@ -619,21 +619,29 @@ function above_two_hundred() {
         });
 }
 
+/* Sort all musicals based on their scores. */
 function sortQuizResult() {
-    var top1musical = "Sorry There is No Musical that Matches Your Interests";
-    var top1score = 0;
-    for (var key in quiz_result) {
-        if (quiz_result[key] > top1score) {
-            top1musical = key;
-            top1score = this.quiz_result[key];
-        }
+    var top1musical = "";
+
+    var items = Object.keys(quiz_result).map(function(key) {
+      return [key, quiz_result[key]];
+    });
+
+    // Sort the array based on the second element
+    items.sort(function(first, second) {
+      return second[1] - first[1];
+    });
+
+    // Create a new array with only the first 5 items
+    for (var i = 0; i < 6; i ++) {
+        top1musical += "=" + items[i][0];
     }
-    console.log(top1musical);
     return top1musical;
 }
 
-
+/* Get the top 6 musicals and feed into the new html page. */
 function getResult() {
     top1musical = sortQuizResult();
-    window.location = "quiz_result.html?title=" + top1musical;
+    window.location = "quiz_result.html?title" + top1musical;
+    console.log(top1musical);
 }
