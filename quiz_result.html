@@ -33,7 +33,7 @@
             color  : white;
             font-family: 'Quicksand', sans-serif;
             font-size : 12px;
-            margin-top : 250px;
+            margin-top : 100px;
             padding-top: 10px;
             padding-bottom:10px;
         }
@@ -92,9 +92,9 @@
 
         .container {
             margin-top:50px;
-            width : 100%;
+            width : 70%;
+            margin-left:15%;
             background-color:white;
-            padding-left:5%;
         }
 
         .cards {
@@ -103,10 +103,74 @@
             margin-left : 5%;
             margin-bottom: 100px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            text-align: center;
+        }
+
+        .cards img {
+            width: 35%;
+            height: 90%;
+            margin-left:10px;
+            margin-top:10px;
+            float:left;
+        }
+
+        .description {
+            width:60%;
+            margin-left: 40%;
+            padding-top: 20px;
         }
     </style>
 </head>
+
+<script>
+    function displayImage(title, image) {
+        if(title.includes("Phantom")) {
+            image.src="./images/phantom.JPG";
+        } else if (title.includes("Harry")) {
+            image.src="./images/harrypotter.JPG";
+        } else if (title.includes("Aladdin")) {
+            image.src="./images/Aladdin.jpg";
+        } else if (title.includes("Mormon")) {
+            image.src="./images/book-of-mormon.jpg";
+        }else if (title.includes("Cats")) {
+            image.src="./images/Cats.jpg";
+        }else if (title.includes("Charlie")) {
+            image.src="./images/Charlie.jpg";
+        }else if (title.includes("Chicago")) {
+            image.src="./images/Chicago.jpeg";
+        }else if (title.includes("Come")) {
+            image.src="./images/come-from-away.jpg";
+        }else if (title.includes("Frozen")) {
+            image.src="./images/Frozen.JPG";
+        }else if (title.includes("Hamilton")) {
+            image.src="./images/Hamilton.JPG";
+        }else if (title.includes("Dolly")) {
+            image.src="./images/hello-dolly.jpg";
+        }else if (title.includes("Kinky")) {
+            image.src="./images/kinky-boots.jpg";
+        }else if (title.includes("Les")) {
+            image.src="./images/les-mis.jpg";
+        }else if (title.includes("Lion")) {
+            image.src="./images/lionking.JPG";
+        }else if (title.includes("Matilda")) {
+            image.src="./images/Matilda.jpg";
+        }else if (title.includes("Mean")) {
+            image.src="./images/mean-girl.png";
+        }else if (title.includes("Saigon")) {
+            image.src="./images/miss-saigon.jpg";
+        }else if (title.includes("Oklahoma")) {
+            image.src="./images/Oklahoma.jpg";
+        }else if (title.includes("Pretty")) {
+            image.src="./images/pretty-woman.jpg";
+        }else if (title.includes("Rock")) {
+            image.src="./images/school-of-rock.jpg";
+        }else if (title.includes("Wicked")) {
+            image.src="./images/wicked.jpg";
+        } else if (title.includes("Fair")) {
+            image.src="./images/my-fair-lady.jpg";
+        }
+    }
+
+</script>
 
 
 <body>
@@ -122,53 +186,108 @@
 <div class="header">Your Top 1</div>
 <div class="header" style="padding-top:0px;">Matching Musical is:</div>
 
+
 <div class="container">
-    <img id="phanom" src="./images/phantom.jpg" style="width:100%; height:100%;display:none;">
-    <img id="hp" src="./images/harrypotter.jpg" style="width:100%; height:100%;display:none;">
-    <img id="hamilton" src="./images/hamilton.jpg" style="width:100%; height:100%;display:none;">
-    <img id="cats" src="./images/cats.jpg" style="width:100%; height:100%;display:none;">
-    <img id="frozen" src="./images/frozen.jpg" style="width:100%; height:100%;display:none">
-    <img id="lionking" src="./images/lionking.jpg" style="width:100%; height:100%;display:none">
-</div>
-<div id="title">
+    <p id="title"></p>
+    <img id="image" style="width:100%;"/>
     <script>
         var title = window.location.search.split("=")[1];
+        while (title.indexOf("%20") != -1) {
+            title = title.replace("%20"," ");
+        }
         document.getElementById("title").innerHTML = title;
-
-        //Display correct image.
-        var image;
-        if(title.contains("phantom")) {
-            image = document.getElementById("phantom");
-        }
-        else if (title.contains("harry")) {
-            image = document.getElementById("hp");
-        }
-        image.style.display = "block";
+        var image = document.getElementById("image");
+        displayImage(title, image);
     </script>
 </div>
 <br>
 <br>
-<div class="container">
-    <div class="sub_header">Other musicals that match your interests</div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
+
+<div class="container" style="width:100%; margin-left:0%; padding-left:5%;">
+    <div class="sub_header" style="font-size:40px;">Other musicals that match your interests</div>
+    <div class="cards" style="height:200px;">
+        <img id="option1" />
+        <div class="description">
+            <h1 id="title1"></h1>
+            <p id="description1"></p>
+        </div>
+            <script>
+                var title = window.location.search.split("=")[2];
+                while (title.indexOf("%20") != -1) {
+                    title = title.replace("%20"," ");
+                }
+                document.getElementById("title1").innerHTML = title;
+                var image = document.getElementById("option1");
+                displayImage(title, image);
+            </script>
     </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
+
+    <div class="cards" style="height:200px;">
+            <img id="option2" />
+            <div class="description">
+                <h1 id="title2"></h1>
+                <p id="description2"></p>
+            </div>
+            <script>
+                var title = window.location.search.split("=")[3];
+                while (title.indexOf("%20") != -1) {
+                    title = title.replace("%20"," ");
+                }
+                document.getElementById("title2").innerHTML = title;
+                var image = document.getElementById("option2");
+                displayImage(title, image);
+            </script>
+        </div>
+
+        <div class="cards" style="height:200px;">
+            <img id="option3" />
+            <div class="description">
+                <h1 id="title3"></h1>
+                <p id="description3"></p>
+            </div>
+            <script>
+                var title = window.location.search.split("=")[4];
+                while (title.indexOf("%20") != -1) {
+                    title = title.replace("%20"," ");
+                }
+                document.getElementById("title3").innerHTML = title;
+                var image = document.getElementById("option3");
+                displayImage(title, image);
+            </script>
+        </div>
+
+        <div class="cards" style="height:200px;">
+            <img id="option4" />
+            <div class="description">
+                <h1 id="title4"></h1>
+                <p id="description4"></p>
+            </div>
+            <script>
+                var title = window.location.search.split("=")[5];
+                while (title.indexOf("%20") != -1) {
+                    title = title.replace("%20"," ");
+                }
+                document.getElementById("title4").innerHTML = title;
+                var image = document.getElementById("option4");
+                displayImage(title, image);
+            </script>
+        </div>
+
+    <div class="cards" style="height:200px;">
+        <img id="option5" />
+        <div class="description">
+            <h1 id="title5"></h1>
+            <p id="description5"></p>
+        </div>
+        <script>
+                var title = window.location.search.split("=")[6];
+                while (title.indexOf("%20") != -1) {
+                    title = title.replace("%20"," ");
+                }
+                document.getElementById("title5").innerHTML = title;
+                var image = document.getElementById("option5");
+                displayImage(title, image);
+            </script>
     </div>
 </div>
 <br>
