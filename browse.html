@@ -97,16 +97,6 @@
             padding-left:5%;
         }
 
-        .cards {
-            width: 75%;
-            background-color: white;
-            margin-left : 8%;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            text-align: center;
-            border: 1px solid black;
-        }
-
         .search_bar {
             width: 80%;
             height : 70px;
@@ -204,27 +194,8 @@
 
 </div>
 
-<div class="container">
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
+<div class="container" id="container">
+    <script>browse()</script>
 </div>
 <br>
 <br>
@@ -232,19 +203,5 @@
     <p> Created 2019 by Georgina Xu. Visit broadway.org for more information.</p>
 </div>
 </body>
-
-<script>
-    function displayImage() {
-        var title = document.getElementById("title");
-        var image;
-        if(title.value().contains("phantom")) {
-            image = document.getElementById("phantom");
-        }
-        else if (title.value().contains("harry")) {
-            image = document.getElementById("hp");
-        }
-        image.style.display = "block";
-    }
-</script>
 
 </html>
