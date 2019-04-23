@@ -397,7 +397,7 @@ app.get('/two_hundred', function(req, res){
     db.all("SELECT Name FROM Price WHERE (HighestPrice < 200);", function(err, rows) {
         if(!err) {
             rows.forEach(function (row) {
-                 if(result.indexOf(row.Title) == -1) {
+                 if(result.indexOf(row.Name) == -1) {
                     result.push(row.Name);
                  }
             });
@@ -410,11 +410,12 @@ app.get('/two_hundred', function(req, res){
 });
 
 app.get('/above_two_hundred', function(req, res){
+    console.log(req.url);
     let result = [];
     db.all("SELECT Name FROM Price WHERE (HighestPrice >= 200);", function(err, rows) {
         if(!err) {
             rows.forEach(function (row) {
-                 if(result.indexOf(row.Title) == -1) {
+                 if(result.indexOf(row.Name) == -1) {
                     result.push(row.Name);
                  }
             });
@@ -425,5 +426,62 @@ app.get('/above_two_hundred', function(req, res){
         }
         });
 });
+
+app.get('/description/?*', function(req, res) {
+    //console.log(req.query.name);
+    let url = req.query.name;
+    let result = [];
+    db.all("SELECT Description FROM Musicals WHERE (Title LIKE '"+url+"');", function(err, rows) {
+        if(!err) {
+                rows.forEach(function (row) {
+
+                     if(result.indexOf(row.Description) == -1) {
+                        result.push(row.Description);
+                     }
+                });
+                console.log(result);
+                res.send(result);
+            } else {
+                console.log(err);
+            }
+    });
+});
+
+app.get('/name/?*', function(req, res) {
+    //console.log(req.query.name);
+    let url = req.query.name;
+    let result = [];
+    db.all("SELECT Title FROM Musicals WHERE (Title LIKE '%"+url+"%');", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                if(result.indexOf(row.Title) == -1) {
+                     result.push(row.Title);
+                }
+            });
+            console.log(result);
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+    });
+});
+
+app.get('/link/?*', function(req, res) {
+    let url = req.query.name;
+    let result = [];
+    db.all("SELECT Link FROM Price WHERE (Name LIKE '%"+url+"%');", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                if(result.indexOf(row.Link) == -1) {
+                    result.push(row.Link);
+                }
+            });
+            console.log(result);
+            res.send(result);
+        } else {
+            console.log(err);
+        }
+    });
+})
 
 server.listen (8080);
