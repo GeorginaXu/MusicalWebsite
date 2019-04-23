@@ -141,7 +141,7 @@
     <a>
         <div id="filter_location">
             <p style="font-family: 'Quicksand', sans-serif;">Filter by location:</p>
-            <select id="select_location" style="width:40%;">
+            <select id="select_location" style="width:40%;" onchange="updateOption(this, 0);">
                 <option>---</option>
                 <option style="font-family: 'Quicksand', sans-serif;">London</option>
                 <option style="font-family: 'Quicksand', sans-serif;">New York City</option>
@@ -153,7 +153,7 @@
     <a>
         <div id="filter_type">
             <p style="font-family: 'Quicksand', sans-serif;">Filter by type:</p>
-            <select id="select_type" style="width:40%;">
+            <select id="select_type" style="width:40%;" onchange="updateOption(this, 1);">
                 <option>---</option>
                 <option style="font-family: 'Quicksand', sans-serif;">Comedy</option>
                 <option style="font-family: 'Quicksand', sans-serif;">Disney</option>
@@ -161,27 +161,26 @@
                 <option style="font-family: 'Quicksand', sans-serif;">Horror</option>
                 <option style="font-family: 'Quicksand', sans-serif;">Magic</option>
                 <option style="font-family: 'Quicksand', sans-serif;">Romance</option>
-                <option style="font-family: 'Quicksand', sans-serif;">Rock</option>
-                <option style="font-family: 'Quicksand', sans-serif;">Teen</option>
-                <option style="font-family: 'Quicksand', sans-serif;">Tragedy</option>
+                <option style="font-family: 'Quicksand', sans-serif;">Crime</option>
             </select>
         </div>
     </a>
     <a>
         <div id="filter_age">
             <p style="font-family: 'Quicksand', sans-serif;">Filter by age range:</p>
-            <select id="select_age" style="width:40%;">
+            <select id="select_age" style="width:40%;" onchange="updateOption(this, 2);">
                 <option>---</option>
-                <option style="font-family: 'Quicksand', sans-serif;">5 - 10</option>
-                <option style="font-family: 'Quicksand', sans-serif;">11 - 18</option>
-                <option style="font-family: 'Quicksand', sans-serif;">18+</option>
+                <option style="font-family: 'Quicksand', sans-serif;">1 - 10</option>
+                <option style="font-family: 'Quicksand', sans-serif;">10 - 15</option>
+                <option style="font-family: 'Quicksand', sans-serif;">15 - 20</option>
+                <option style="font-family: 'Quicksand', sans-serif;">20+</option>
             </select>
         </div>
     </a>
     <a>
         <div id="filter_price">
             <p style="font-family: 'Quicksand', sans-serif;">Filter by price:</p>
-            <select id="select_price" style="width:40%;">
+            <select id="select_price" style="width:40%;" onchange="updateOption(this, 3);">
                 <option>---</option>
                 <option style="font-family: 'Quicksand', sans-serif;">under $50</option>
                 <option style="font-family: 'Quicksand', sans-serif;">$50 - $100</option>
@@ -191,11 +190,11 @@
             </select>
         </div>
     </a>
-
+    <script>createStyle()</script>
 </div>
 
 <div class="container" id="container">
-    <script>browse()</script>
+    <script>filterResult(["---", "---", "---", "---"]);</script>
 </div>
 <br>
 <br>
