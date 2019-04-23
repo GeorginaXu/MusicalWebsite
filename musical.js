@@ -660,6 +660,21 @@ function fillDescription(title, index) {
     });
 }
 
+function fillLink(title, index) {
+    var url = "http://127.0.0.1:8080/link"+"/?name="+title;
+
+    fetch(url, {cache: "no-cache"}).then(function(response){
+        return response.json();
+    })
+    .then(function(response) {
+        let link = JSON.stringify(response);
+        link = link.substring(2, link.length-2);
+        console.log("link: " + link);
+        document.getElementById("link"+index).innerHTML = "Book your ticket here"
+        document.getElementById("link"+index).href = link;
+    });
+}
+
 function displayImage(title, image) {
         if(title.includes("Phantom")) {
             image.src="./images/phantom.JPG";
@@ -728,8 +743,7 @@ function createStyle(){
         document.getElementsByTagName('head')[0].appendChild(descriptionStyle);
 }
 
-function updateList(names) {
-
+function updateList(names, flag) {
     var container = document.getElementById("container");
     var childToRemove = [];
     for (var i = 0; i < container.childNodes.length; i ++) {
@@ -750,6 +764,7 @@ function updateList(names) {
         var index = 0;
         for (var i = 0; i < names.length; i++){
            var name = names[i];
+           console.log(name);
            if((name != "") && (name != ",")) {
                index = index + 1;
                var card = document.createElement("div");
@@ -767,12 +782,20 @@ function updateList(names) {
                var h1 = document.createElement("h1");
                h1.id="title"+index;
                h1.innerHTML = name;
+               description.appendChild(h1);
+
+               if (flag == "link") {
+                   var link = document.createElement("a");
+                   link.id = "link"+index;
+                   fillLink(name, index);
+                   description.appendChild(link);
+               }
 
                var des = document.createElement("div");
                des.id="description"+index;
-               des.style="height:100%;padding-top:5px; overflow:scroll;"
+               des.style="height:90%;padding-top:5px; overflow:scroll;"
 
-               description.appendChild(h1);
+
                description.appendChild(des);
                card.appendChild(description);
 
@@ -856,7 +879,7 @@ function fetchData(url) {
 }
 
 /* This function asks for filtered result given the options user chose. */
-async function filterResult(options) {
+async function filterResult(options, flag) {
     var filteredMusicals = [];
 
     if (options[0] == "---" && options[1] == "---" && options[2] == "---" && options[3] == "---") {
@@ -865,8 +888,11 @@ async function filterResult(options) {
         filteredMusicals = await fetchData(url);
         setTimeout(function() {
             console.log(filteredMusicals);
-            updateList(filteredMusicals);
-
+            if(flag == "link") {
+               updateList(filteredMusicals, "link");
+            } else {
+               updateList(filteredMusicals, "description");
+            }
         }, 100);
 
     } else {
@@ -889,7 +915,7 @@ async function filterResult(options) {
         setTimeout(function() {
             filteredMusicals = combinedResult;
             console.log(filteredMusicals);
-            updateList(filteredMusicals);
+            updateList(filteredMusicals, "description");
         }, 100);
     }
 }
@@ -905,4 +931,42 @@ function updateOption(selectedObject, index) {
     filterOptions[index] = selectedObject.value;
     console.log("in updateOption: options are" + filterOptions);
     filterResult(filterOptions);
+}
+
+/* Return title of all musicals for the ticket page. */
+async function getAllMusicals() {
+    let allMusicals = [];
+    let url="http://127.0.0.1:8080/all";
+    allMusicals = await fetchData(url);
+    setTimeout(function() {
+       console.log(allMusicals);
+       var selectName = document.getElementById("select_name");
+       for (var i = 0; i < allMusicals.length; i ++) {
+            var name = allMusicals[i];
+            var option = document.createElement("option");
+            option.innerHTML = name;
+            selectName.appendChild(option);
+       }
+    }, 100);
+}
+
+/* Get title and description of musical selected in the ticket page. */
+function getMusical(selectedObject) {
+    var title = selectedObject.value;
+    while(title.indexOf("%20") != -1) {
+        title = title.replace("%20", " ");
+    }
+    var url = "http://127.0.0.1:8080/name"+"/?name="+title;
+
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            let title = JSON.stringify(response);
+            title = title.substring(2, title.length-2);
+            title = title.split('"');
+            console.log("title: "+title);
+
+            updateList(title, "link");
+        });
 }
