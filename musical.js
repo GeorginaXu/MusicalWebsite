@@ -708,57 +708,68 @@ function displayImage(title, image) {
         }
 }
 
-function browse() {
+var cards;
+var cardsImg;
+var descriptionStyle;
+function createStyle(){
+        cards = document.createElement('style');
+        cards.type = 'text/css';
+        cards.innerHTML = '.cards { width: 70%; background-color: white; margin-left : 10%; margin-bottom: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }';
+        document.getElementsByTagName('head')[0].appendChild(cards);
 
-    var cards = document.createElement('style');
-    cards.type = 'text/css';
-    cards.innerHTML = '.cards { width: 80%; background-color: white; margin-left : 5%; margin-bottom: 30px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }';
-    document.getElementsByTagName('head')[0].appendChild(cards);
+        cardsImg = document.createElement('style');
+        cardsImg.type = 'text/css';
+        cardsImg.innerHTML = '.cards img { width: 35%;height: 90%;margin-left:10px;margin-top:10px;float:left; }';
+        document.getElementsByTagName('head')[0].appendChild(cardsImg);
 
-    var cardsImg = document.createElement('style');
-    cardsImg.type = 'text/css';
-    cardsImg.innerHTML = '.cards img { width: 35%;height: 90%;margin-left:10px;margin-top:10px;float:left; }';
-    document.getElementsByTagName('head')[0].appendChild(cardsImg);
+        descriptionStyle = document.createElement('style');
+        descriptionStyle.type = 'text/css';
+        descriptionStyle.innerHTML = '.description { width:58%;height: 60%;margin-left: 40%;padding-top: 20px; }';
+        document.getElementsByTagName('head')[0].appendChild(descriptionStyle);
+}
 
-    var descriptionStyle = document.createElement('style');
-    descriptionStyle.type = 'text/css';
-    descriptionStyle.innerHTML = '.description { width:58%;height: 60%;margin-left: 40%;padding-top: 20px; }';
-    document.getElementsByTagName('head')[0].appendChild(descriptionStyle);
+function updateList(names) {
 
-    let names = [];
-    let url="http://127.0.0.1:8080/all";
-    fetch(url, {cache: "no-cache"}).then(function(response){
-        return response.json();
-    })
-    .then(function(response) {
-        names = JSON.stringify(response);
+    var container = document.getElementById("container");
+    var childToRemove = [];
+    for (var i = 0; i < container.childNodes.length; i ++) {
+        if (container.childNodes[i].className == "cards") {
+           childToRemove.push(container.childNodes[i]);
+        }
+    }
 
-        names = names.substring(2, names.length-1);
-        names = names.split('"');
-        var container = document.getElementById("container");
+    for (var i = 0; i < childToRemove.length; i ++) {
+        container.removeChild(childToRemove[i]);
+    }
 
+    if(names[0] == "No musicals that match your result") {
+        var errorMessage = document.createElement("p");
+        errorMessage.innerHTML = names[0];
+        container.appendChild(errorMessage);
+    } else {
+        var index = 0;
         for (var i = 0; i < names.length; i++){
            var name = names[i];
-           console.log(name);
            if((name != "") && (name != ",")) {
+               index = index + 1;
                var card = document.createElement("div");
                card.className = "cards";
                card.style = "height:200px;";
 
                var image = document.createElement("img");
                image.className = "cards img";
-               image.id="option"+i;
+               image.id="option"+index;
                card.appendChild(image);
 
                var description = document.createElement("div");
                description.className="description";
 
                var h1 = document.createElement("h1");
-               h1.id="title"+i;
+               h1.id="title"+index;
                h1.innerHTML = name;
 
                var des = document.createElement("div");
-               des.id="description"+i;
+               des.id="description"+index;
                des.style="height:100%;padding-top:5px; overflow:scroll;"
 
                description.appendChild(h1);
@@ -767,8 +778,131 @@ function browse() {
 
                displayImage(name, image);
                container.appendChild(card);
-               fillDescription(name, i);
+               fillDescription(name, index);
            }
         }
+    }
+}
+
+function findParam(value) {
+    var param = "";
+        if (value == "London") {
+            param = "london";
+        } else if (value == "New York City") {
+            param = "nyc";
+        } else if (value == "Off Broadway") {
+            param = "other_cities";
+        } else if (value == "Comedy") {
+            param = "comedy";
+        } else if (value == "Disney") {
+            param = "disney";
+        } else if (value == "History") {
+            param = "history";
+        } else if (value == "Horror") {
+            param = "horror";
+        } else if (value == "Magic") {
+            param = "magic";
+        } else if (value == "Romance") {
+            param = "romance";
+        } else if (value == "Crime") {
+            param = "crime";
+        } else if (value == "1 - 10") {
+            param = "ten";
+        } else if (value == "10 - 15") {
+            param = "fifteen";
+        } else if(value == "15 - 20") {
+            param = "twenty";
+        } else if (value == "20+") {
+            param = "above_twenty";
+        } else if (value == "under $50") {
+            param = "fifty";
+        } else if (value == "$50 - $100") {
+            param = "hundred";
+        } else if (value == "$100 - $150") {
+            param = "onefifty";
+        } else if (value == "$150 - $200") {
+            param = "two_hundred";
+        } else if (value == "$200+") {
+            param = "above_two_hundred";
+        }
+    return param;
+}
+
+/* This function takes in an url and return the fetched data as a promise. */
+function fetchData(url) {
+    let result = []
+    return new Promise((resolve, reject) => {
+        fetch(url, {cache: "no-cache"}).then(function(response){
+            return response.json();
+        })
+        .then(function(response) {
+            console.log('Success:', JSON.stringify(response));
+            names = JSON.stringify(response);
+
+            names = names.substring(2, names.length-1);
+            names = names.split('"');
+
+            for (var i = 0; i < names.length; i++){
+                var name = names[i];
+                if((name != "") && (name != ",")) {
+                    if(result.includes(name) == false) {
+                        result.push(name);
+                    }
+                }
+            }
+            resolve(result);
+        });
     });
+}
+
+/* This function asks for filtered result given the options user chose. */
+async function filterResult(options) {
+    var filteredMusicals = [];
+
+    if (options[0] == "---" && options[1] == "---" && options[2] == "---" && options[3] == "---") {
+        filteredMusicals = [];      //Clear filterMusicals
+        let url="http://127.0.0.1:8080/all";
+        filteredMusicals = await fetchData(url);
+        setTimeout(function() {
+            console.log(filteredMusicals);
+            updateList(filteredMusicals);
+
+        }, 100);
+
+    } else {
+        let combinedResult = [];
+        for (var i = 0; i < options.length; i ++) {
+            if(options[i] != "---") {
+                var param = findParam(options[i]);
+                var result = []
+                let url="http://127.0.0.1:8080/"+param;
+                if(combinedResult.length == 0) {
+                    combinedResult = await fetchData(url);
+                    console.log("combined result: " + combinedResult);
+                } else {
+                    result = await fetchData(url);
+                     //Find intersection of the fetched results.
+                    combinedResult = combinedResult.filter(x => result.includes(x));
+                }
+            }
+        }
+        setTimeout(function() {
+            filteredMusicals = combinedResult;
+            console.log(filteredMusicals);
+            updateList(filteredMusicals);
+        }, 100);
+    }
+}
+
+var filterOptions = new Array(4);
+filterOptions[0] = "---";
+filterOptions[1] = "---";
+filterOptions[2] = "---";
+filterOptions[3] = "---";
+
+/* This function changes the option list every time the user selects a different option. It also calls filterResult. */
+function updateOption(selectedObject, index) {
+    filterOptions[index] = selectedObject.value;
+    console.log("in updateOption: options are" + filterOptions);
+    filterResult(filterOptions);
 }
