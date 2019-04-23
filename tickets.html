@@ -92,9 +92,9 @@
 
         .container {
             margin-top:50px;
-            width : 80%;
+            width : 100%;
             background-color:white;
-            margin-left:10%
+            margin-left:5%;
         }
 
         .cards {
@@ -104,15 +104,13 @@
             margin-bottom: 30px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align: center;
-            border: 1px solid black;
         }
 
         .search_bar {
-            width: 60%;
-            height : 65px;
-            background-color: #e2e0e0;
+            width: 40%;
+            height : 45px;
             overflow: auto;
-            margin-left: 20%;
+            margin-left: 25%;
             margin-right: 50px;
             margin-top : 30px;
             margin-bottom:70px;
@@ -120,15 +118,13 @@
             border-radius: 15px;
         }
 
-        .search_bar a {
-            float: left;
+        .select_opt {
             color: black;
-            padding-top:10px;
-            margin-left: 90px;
             text-decoration: none;
             font-size: 17px;
-            width: 25%; /* Four links of equal widths */
-            text-align: center;
+            width: 80%;
+            padding-top:10px;
+            margin-left:10%;
             font-family: 'Quicksand', sans-serif;
         }
     </style>
@@ -149,92 +145,18 @@
 
 <div class="container">
     <div class="search_bar">
-        <a>
-            <div id="select_loc">
-                <p style="font-family: 'Quicksand', sans-serif;">Select location:</p>
-                <select id="select_location">
-                    <option>---</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">London</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">New York City</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Off Broadway</option>
-                </select>
-
-            </div>
-        </a>
-
-        <a id="on_broadway" style="display:inline-block;">
-            <div>
-                <p style="font-family: 'Quicksand', sans-serif;">Search by name:</p>
-                <select id="select_ob_ticket">
-                    <option>---</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Aladdin</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Chicago</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Come From Away</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Frozen</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Hamilton</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Harry Potter and the Cursed Child</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Kinky Boots</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">My Fair Lady</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Mean Girls</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Oklahoma!</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Pretty Woman: The Musical</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Lion King</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Book of Mormon</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Phantom of Opera</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Wicked</option>
-
-                </select>
-
-            </div>
-        </a>
-        <a id="off_broadway" style="display:none;">
-            <div>
-                <p style="font-family: 'Quicksand', sans-serif;">Search by name:</p>
-                <select id="select_off_ticket">
-                    <option>---</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Aladdin</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Anastasia</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Charlie and the Chocolate Factory</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Cats</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Les Misérables</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Hamilton</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Harry Potter and the Cursed Child</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Hello, Dolly!</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">School of Rock The Musical</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Book of Mormon</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Phantom of Opera</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Lion King</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Wicked</option>
-                </select>
-            </div>
-        </a>
-        <a id="london" style="display:none;">
-            <div>
-                <p style="font-family: 'Quicksand', sans-serif;">Search by name:</p>
-                <select id="select_london_ticket">
-                    <option>---</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Aladdin</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Chicago</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Les Misérables</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Kinky Boots</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Hamilton</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Matilda</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">School of Rock The Musical</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Book of Mormon</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Phantom of Opera</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">The Lion King</option>
-                    <option style="font-family: 'Quicksand', sans-serif;">Wicked</option>
-                </select>
-            </div>
-        </a>
+        <div class="select_opt">Select name:
+           <select id="select_name" onchange="getMusical(this)">
+              <option>---</option>
+           </select>
+        </div>
     </div>
+    <script>getAllMusicals();</script>
+    <script>createStyle();</script>
 </div>
 
-<div class="container">
-    <div class="cards">
-        <p class="sub_header"></p>
-        <p name="description"></p>
-    </div>
+<div class="container" id="container">
+    <script>filterResult(["---", "---", "---", "---"], "link");</script>
 </div>
 <br>
 <br>
@@ -242,18 +164,4 @@
     <p> Created 2019 by Georgina Xu. Visit broadway.org for more information.</p>
 </div>
 </body>
-
-<script>
-    function displayImage() {
-        var title = document.getElementById("title");
-        var image;
-        if(title.value().contains("phantom")) {
-            image = document.getElementById("phantom");
-        }
-        else if (title.value().contains("harry")) {
-            image = document.getElementById("hp");
-        }
-        image.style.display = "block";
-    }
-</script>
 </html>
