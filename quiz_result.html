@@ -145,7 +145,13 @@
         while (title.indexOf("%20") != -1) {
             title = title.replace("%20"," ");
         }
-        document.getElementById("title").innerHTML = title;
+        var div = document.getElementById("title");
+        div.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+        div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+        div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
+        div.innerHTML = title;
+        div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
         var image = document.getElementById("image");
     </script>
     <script>
@@ -168,7 +174,13 @@
                 while (title.indexOf("%20") != -1) {
                     title = title.replace("%20"," ");
                 }
-                document.getElementById("title1").innerHTML = title;
+                var div = document.getElementById("title1");
+                div.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+                div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+                div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
+                div.innerHTML = title;
+                div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
                 var image = document.getElementById("option1");
             </script>
             <script>
@@ -190,7 +202,13 @@
                 while (title.indexOf("%20") != -1) {
                     title = title.replace("%20"," ");
                 }
-                document.getElementById("title2").innerHTML = title;
+                var div = document.getElementById("title2");
+                div.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+                div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+                div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
+                div.innerHTML = title;
+                div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
                 var image = document.getElementById("option2");
             </script>
             <script>
@@ -212,7 +230,13 @@
                 while (title.indexOf("%20") != -1) {
                     title = title.replace("%20"," ");
                 }
-                document.getElementById("title3").innerHTML = title;
+                var div = document.getElementById("title3");
+                div.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+                div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+                div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
+                div.innerHTML = title;
+                div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
                 var image = document.getElementById("option3");
             </script>
             <script>
@@ -234,7 +258,13 @@
                 while (title.indexOf("%20") != -1) {
                     title = title.replace("%20"," ");
                 }
-                document.getElementById("title4").innerHTML = title;
+                var div = document.getElementById("title4");
+                div.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+                div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+                div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
+                div.innerHTML = title;
+                div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
                 var image = document.getElementById("option4");
             </script>
             <script>
@@ -256,7 +286,13 @@
                 while (title.indexOf("%20") != -1) {
                     title = title.replace("%20"," ");
                 }
-                document.getElementById("title5").innerHTML = title;
+                var div = document.getElementById("title5");
+                div.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+                div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+                div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
+                div.innerHTML = title;
+                div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
                 var image = document.getElementById("option5");
         </script>
         <script>
