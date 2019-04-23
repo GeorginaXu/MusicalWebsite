@@ -12,7 +12,7 @@ const myQuestions = [
     }
   },
   {
-    question: "What types of stories do you likes? (Select all that applied)",
+    question: "What types of stories do you like? (Select all that apply)",
     answers: {
       a: "Romance",
       b: "Comedy",
@@ -23,11 +23,11 @@ const myQuestions = [
     }
   },
   {
-    question: "What locations do you prefer for watching musicals?",
+    question: "Where would you like to see the musical?",
     answers: {
-      a: "New York City",
-      b: "Other cities in the U.S.",
-      c: "London",
+      a: "New York City, U.S.",
+      b: "London, England",
+      c: "Other cities in the U.S."
     }
   },
   {
@@ -660,6 +660,7 @@ function fillDescription(title, index) {
     });
 }
 
+/* Fill the ticket link in the description area. */
 function fillLink(title, index) {
     var url = "http://127.0.0.1:8080/link"+"/?name="+title;
 
@@ -675,6 +676,7 @@ function fillLink(title, index) {
     });
 }
 
+/* Display the correct image given the musical's title. */
 function displayImage(title, image) {
         if(title.includes("Phantom")) {
             image.src="./images/phantom.JPG";
@@ -743,6 +745,8 @@ function createStyle(){
         document.getElementsByTagName('head')[0].appendChild(descriptionStyle);
 }
 
+
+/* update the web-page cards based on the input list of musicals */
 function updateList(names, flag) {
     var container = document.getElementById("container");
     var childToRemove = [];
@@ -764,12 +768,13 @@ function updateList(names, flag) {
         var index = 0;
         for (var i = 0; i < names.length; i++){
            var name = names[i];
-           console.log(name);
+           //console.log(name);
            if((name != "") && (name != ",")) {
                index = index + 1;
                var card = document.createElement("div");
                card.className = "cards";
                card.style = "height:200px;";
+               console.log(name);
 
                var image = document.createElement("img");
                image.className = "cards img";
@@ -779,9 +784,14 @@ function updateList(names, flag) {
                var description = document.createElement("div");
                description.className="description";
 
-               var h1 = document.createElement("h1");
+               var h1 = document.createElement("h2");
                h1.id="title"+index;
+               h1.style="text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;";
+               h1.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+               h1.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+
                h1.innerHTML = name;
+               h1.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
                description.appendChild(h1);
 
                if (flag == "link") {
@@ -807,6 +817,7 @@ function updateList(names, flag) {
     }
 }
 
+/* Returns the parameter that matches the node js query parameter given a value. */
 function findParam(value) {
     var param = "";
         if (value == "London") {
@@ -969,4 +980,9 @@ function getMusical(selectedObject) {
 
             updateList(title, "link");
         });
+}
+
+function loadMusicalProfile(name) {
+    window.location = "musical_profile.html?title=" + name;
+
 }
