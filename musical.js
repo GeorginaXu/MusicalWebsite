@@ -982,7 +982,24 @@ function getMusical(selectedObject) {
         });
 }
 
+/* Event listener for each musical card. */
 function loadMusicalProfile(name) {
     window.location = "musical_profile.html?title=" + name;
 
+}
+
+/* Visual typing effect when displaying quiz result. */
+var i = 0;
+var speed = 150;
+var text = "";
+function setAttribute(title, div) {
+    text = title;
+}
+
+function typingEffect() {
+    if (i < text.length) {
+        document.getElementById("title").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, speed);
+    }
 }

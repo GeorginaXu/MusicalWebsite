@@ -146,15 +146,15 @@
             title = title.replace("%20"," ");
         }
         var div = document.getElementById("title");
-        div.addEventListener("mouseenter", function() {event.target.style="color:blue;font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
-        div.addEventListener("mouseleave", function() {event.target.style="font-size=200px; text-decoration:underline;font-family: 'Quicksand', sans-serif;font-weight:bold;margin-bottom:5px;"});
+        div.addEventListener("mouseenter", function() {event.target.style="color:blue;"});
+        div.addEventListener("mouseleave", function() {event.target.style="color:black;"});
 
-        div.innerHTML = title;
+        div.innerHTML = "";
         div.addEventListener("click", function() {loadMusicalProfile(event.target.innerHTML);}, false);
         var image = document.getElementById("image");
-    </script>
-    <script>
-        displayImage(title, image)
+        displayImage(title, image);
+        setAttribute(title);
+        typingEffect();
     </script>
 </div>
 <br>
