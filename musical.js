@@ -988,6 +988,11 @@ function loadMusicalProfile(name) {
 
 }
 
+function loadInfoInProfile(title) {
+    fillLink(title, "");
+    fillDescription(title, "");
+}
+
 /* Visual typing effect when displaying quiz result. */
 var i = 0;
 var speed = 150;
