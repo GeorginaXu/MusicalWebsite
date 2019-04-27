@@ -148,18 +148,24 @@
 
         #text_block {
             position : absolute;
-            top   : 150px;
-            left  : 260px;
-            height  : 350px;
-            width  : 400px;
+            top   : 25%;
+            left  : 30%;
+
+            width  : 40%;
             background-color: #161616;
             color: white;
-            padding-top: 50px;
+            padding-top: 8%;
             padding-left: 30px;
             padding-right: 30px;
-            padding-bottom : 50px;
+            padding-bottom : 10%;
             text-align: center;
             font-family: 'Raleway', sans-serif;
+        }
+
+        @media (max-width: 1026px) {
+            #text {
+                display: none;
+            }
         }
 
         .button {
@@ -194,7 +200,7 @@
 </div>
 
 <div>
-    <p id="header"> Welcome to G's Musical Land </p>
+    <p id="header">Welcome to G's Musical Land</p>
     <p id="sub_header"> ~ Find Your Soul Musical ~ </p>
 </div>
 
@@ -251,18 +257,19 @@
 
 <div id="quiz_box">
     <img src="./images/broadway.jpg" style="width:100%;opacity:0.9">
-    <div id="text_block">
-        <p style="font-size:30px;">Matching Quiz</p>
-        <br>
-        <br>
-        <br>
-        <p style="font-size:15px;line-height:30px;">New to Musical? Don't know what show to watch first? Take the matching quiz and find your soul musical based on your interests and personality!</p>
-        <br>
-        <br>
-        <button class="button" onClick="location.href='./quiz.html';">
-            Start
-        </button>
-    </div>
+        <div id="text_block" >
+            <p style="font-size:30px;">Matching Quiz</p>
+            <br>
+            <br>
+            <p id="text" style="font-size:15px;line-height:30px;">New to Musical? Don't know what show to watch first? Take the matching quiz and find your soul musical based on your interests and personality!</p>
+            <br>
+            <br>
+            <button class="button" onClick="location.href='./quiz.html';">
+                Start
+            </button>
+        </div>
+    </img>
+
 </div>
 
     <div id="bottom_bar">

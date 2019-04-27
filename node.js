@@ -484,4 +484,36 @@ app.get('/link/?*', function(req, res) {
     });
 })
 
+app.get('/date/?*', function(req, res) {
+    let url = req.query.name;
+    let date = [];
+    db.all("SELECT `Start Date`, `End Date` FROM Date WHERE (Name LIKE '%"+url+"%');", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                date = [row['Start Date'], row['End Date']];
+            });
+            console.log(date);
+            res.send(date);
+        } else {
+            console.log(err);
+        }
+    });
+})
+
+app.get('/duration/?*', function(req, res) {
+    let url = req.query.name;
+    var duration = 0;
+    db.all("SELECT `Duration` FROM Musicals WHERE (Title LIKE '%"+url+"%');", function(err, rows) {
+        if(!err) {
+            rows.forEach(function (row) {
+                duration = row;
+            });
+            console.log(duration);
+            res.send(duration);
+        } else {
+            console.log(err);
+        }
+    });
+})
+
 server.listen (8080);

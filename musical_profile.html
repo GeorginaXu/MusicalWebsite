@@ -124,8 +124,8 @@
 </div>
 
 <div class="container" style="height:200px;">
-    <div class="sub_header" id="title" style="margin-top:80px; margin-left:100px;"></div>
-    <div class="sub_header" style="font-size:30px;margin-left:100px;margin-bottom:20px;">Musical</div>
+    <div class="sub_header" id="title" style="margin-top:80px; margin-left:200px;"></div>
+    <div class="sub_header" style="font-size:30px;margin-left:200px;margin-bottom:20px;">Musical</div>
     <script>
         var title = window.location.search.split("=")[1];
         while (title.indexOf("%20") != -1) {
@@ -133,14 +133,15 @@
         }
         document.getElementById("title").innerHTML = title;
     </script>
-    <hr style="border: 2px solid black;margin-left:100px; width:70%;" />
+    <hr style="border: 2px solid black;margin-left:200px; width:70%;" />
 </div>
 
-<div class="container" style="width:900px; height:200px;margin-left:100px;">
+<div class="container" style="width:900px; height:200px;margin-left:200px;">
+    <button style="float: right; font-family: 'Merienda', cursive;padding:15px;font-size:20px; background-color:black;color:white;">
+        <a id="link" style="color:white;">Book Your Ticket</a></button>
     <p id="startDate" style="font-family: 'Merienda', cursive;margin-bottom:20px;font-size:25px;">Opening Date:</p>
     <p id="endDate" style="font-family: 'Merienda', cursive;margin-bottom:20px;font-size:25px;">Closing Date:</p>
     <p id="duration" style="font-family: 'Merienda', cursive;margin-bottom:20px;font-size:25px;">Duration:</p>
-    <a id="link" style="font-family: 'Merienda', cursive;margin-bottom:20px;font-size:25px;">Book Your Ticket here:</a>
     <p style="font-family: 'Merienda', cursive;margin-top:20px;margin-bottom:20px;font-size:25px;">Description:</p>
     <p id="description" style="width:100%; font-size:20px;margin-left:50px;"></p>
 
@@ -148,6 +149,8 @@
         loadInfoInProfile(document.getElementById("title").innerHTML);
     </script>
 </div>
+<br>
+<br>
 <br>
 <br>
 <div id="bottom_bar">

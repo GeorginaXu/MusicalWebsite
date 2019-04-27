@@ -671,7 +671,7 @@ function fillLink(title, index) {
         let link = JSON.stringify(response);
         link = link.substring(2, link.length-2);
         console.log("link: " + link);
-        document.getElementById("link"+index).innerHTML = "Book your ticket here"
+        document.getElementById("link"+index).innerHTML = "Book your ticket here";
         document.getElementById("link"+index).href = link;
     });
 }
@@ -988,9 +988,33 @@ function loadMusicalProfile(name) {
 
 }
 
+function fillDate(title) {
+    var url1 = "http://127.0.0.1:8080/date"+"/?name="+title;
+
+    fetch(url1, {cache: "no-cache"}).then(function(response){
+       return response.json();
+    })
+    .then(function(response) {
+       console.log("date: "+response[0] + " " + response[1]);
+       document.getElementById('startDate').innerHTML += "   " + response[0];
+       document.getElementById('endDate').innerHTML += "   " + response[1];
+    });
+
+    var url2 = "http://127.0.0.1:8080/duration"+"/?name="+title;
+
+        fetch(url2, {cache: "no-cache"}).then(function(response){
+           return response.json();
+        })
+        .then(function(response) {
+           console.log(response['Duration']);
+           document.getElementById('duration').innerHTML += "   " + response['Duration'] + "h";
+        });
+}
+
 function loadInfoInProfile(title) {
     fillLink(title, "");
     fillDescription(title, "");
+    fillDate(title);
 }
 
 /* Visual typing effect when displaying quiz result. */
