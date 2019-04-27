@@ -31,24 +31,28 @@ updated: 04/27/2019
    ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/date_table.png)
 
    - Musicals
+   
+   ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/musicals_table.png)
+   
    - Price 
    
-   The **Date** table contains the time period that a musical is going to be in theatuer; it has 3 columns: 
-   - Name 
-   - Start Date
-   - End Date 
+   ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/price_table.png)
    
-   The **London** table contains the information for all musicals that are on show in London West End; it has 8 columns: 
-   - Title
-   - Type
-   - Description
-   - Duration
-   - Lowest Price
-   - Highest Price
-   - Booking Link
-   - Age Appropriate
+   The **Date** table contains the time period that a musical is going to be in theater; it has 3 columns: 
+   - Name : represents the name of the musical
+   - Start Date : represents the time of the musical's debut (in format YY-MM-DD)
+   - End Date : represents the last day the musical is going to be in theater (in format YY-MM-DD)
    
-   The **OnBroadway** table contains the information for all musicals that are on show in NYC; it has the same columns as table London. The **OffBroadway** table contains the information for all musicals that are on show in other cities in the US. The **Price** table contains the price range for all musicals in the database.
+   The **Muscials** table contains the information for all musicals that are stored in the database; it has SEVEN columns: 
+   - Title : represents the name of the musical
+   - City : represents the city where the musical is showed [Values: New York City, London, Other Cities in the US]
+   - Type of Musical : represents the genre of the musical [Values: Romance, Disney, Teen, History, Horror, Magic, Crime, Comedy]
+   - Description : represents a full description of the musical, including background context and content
+   - Duration : represents how long the musical is (in hours)
+   - minAge : represents the age appropriate for the musical 
+   - On Tour : a boolean value representing if the musical is on tour
+   
+   
    
 
 ### Demo
