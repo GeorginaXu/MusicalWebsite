@@ -1,6 +1,7 @@
 # Georgia's Musical Website
 
 created: 04/14/2019
+
 updated: 04/27/2019
 
 ## Required Module
@@ -26,6 +27,9 @@ updated: 04/27/2019
    In addition, the sqlite database was also built and the file is called **Musicals.db**. The database contains THREE tables:
    
    - Date 
+   
+   ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/date_table.png)
+
    - Musicals
    - Price 
    
