@@ -1,6 +1,7 @@
 # Georgia's Musical Website
 
 created: 04/14/2019
+updated: 04/27/2019
 
 ## Required Module
 
@@ -14,7 +15,7 @@ created: 04/14/2019
 
    To run the project, using the cd command in your terminal to go to the folder that contains all the files (including images). To start the node.js server, simply run ```node node.js```
    
-   After starting the server, open one of your web browsers (i.e. Chrome) and go to ```localhost:8080```. You will see the front page of my website displayed.
+   After starting the server, open one of your web browsers (i.e. Chrome) and go to ```127.0.0.1:8080```. You will see the front page of my website displayed.
    
    
 
@@ -22,12 +23,10 @@ created: 04/14/2019
 
    Currently, only the front-end of all webpages were implemented. The Match button in the navigation bar will take users to the matching quiz. The matching quiz webpage is not connected to the sqlite database yet, so it cannot query data based on user's answers. The Browse button in the navigation bar will take users to browse.html, which allows users to browse all musicals that are currently in theature. The Ticket button in the navigation bar will take users to tickets.html, which provides users the link to book tickets for their chosen musical. 
    
-   In addition, the sqlite database was also built and the file is called **Musicals.db**. The database contains five tables:
+   In addition, the sqlite database was also built and the file is called **Musicals.db**. The database contains THREE tables:
    
    - Date 
-   - London
-   - OnBroadway
-   - OffBroadway
+   - Musicals
    - Price 
    
    The **Date** table contains the time period that a musical is going to be in theatuer; it has 3 columns: 
