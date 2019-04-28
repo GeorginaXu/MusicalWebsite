@@ -46,11 +46,16 @@ By clicking the title of a musical, the website will take the user to a profile 
 
 ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/browse.gif)
 
-The Browse page can be accessed from any other pages in this website. It shows the entire list of musicals that are stored in the database. There is a filtering bar on top of the page, with four filtering conditions, which enables the user to filter out musicals based on Location, Type, Age Range, and Price. 
+The Browse page can be accessed from any other pages in this website, by clicking on the tab in the navigation bar. It shows the entire list of musicals that are stored in the database. There is a filtering bar on the top of the page, with four filtering conditions, which enables the user to filter out musicals based on Location, Type, Age Range, and Price. 
 
 
 ### Tickets Page
  
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/ticket-page.gif)
+
+The Ticket page can be accessed from any other pages in this website, by clicking on the tab in the navigation bar. It shows the entire list of musicals that are stored in the database, and also includes a booking link for each musical. There is a selection bar on the top of the page, where the user can quickly select the musical they wanna watch, rather than scrolling down the entire list.
+
+
 
 ## Database Structure
  
