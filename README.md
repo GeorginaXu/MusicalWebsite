@@ -2,6 +2,8 @@
 
 created: 04/14/2019
 
+updated: 04/27/2019
+
 ## Required Module
 
    This project is using node.js module, express.js module, and sqlite3 module. In order to run the project on your local machine, you need to have all three modules installed. To install, use terminal commands: 
@@ -14,38 +16,58 @@ created: 04/14/2019
 
    To run the project, using the cd command in your terminal to go to the folder that contains all the files (including images). To start the node.js server, simply run ```node node.js```
    
-   After starting the server, open one of your web browsers (i.e. Chrome) and go to ```localhost:8080```. You will see the front page of my website displayed.
+   After starting the server, open one of your web browsers (i.e. Chrome) and go to ```127.0.0.1:8080```. You will see the front page of my website displayed.
    
    
 
-## Current Functionality
+## Website Structure
 
-   Currently, only the front-end of all webpages were implemented. The Match button in the navigation bar will take users to the matching quiz. The matching quiz webpage is not connected to the sqlite database yet, so it cannot query data based on user's answers. The Browse button in the navigation bar will take users to browse.html, which allows users to browse all musicals that are currently in theature. The Ticket button in the navigation bar will take users to tickets.html, which provides users the link to book tickets for their chosen musical. 
-   
-   In addition, the sqlite database was also built and the file is called **Musicals.db**. The database contains five tables:
+### Home Page
+
+### Matching Quiz
+
+### Musical Profile Page
+
+### Browse Page
+
+### Tickets Page
+ 
+
+## Database Structure
+ 
+   The database was built using SQLite and SQLite Studio. The database file is stored as a file called **Musicals.db**. It contains THREE tables:
    
    - Date 
-   - London
-   - OnBroadway
-   - OffBroadway
+   
+   ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/date_table.png)
+
+   - Musicals
+   
+   ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/musicals_table.png)
+   
    - Price 
    
-   The **Date** table contains the time period that a musical is going to be in theatuer; it has 3 columns: 
-   - Name 
-   - Start Date
-   - End Date 
+   ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/price_table.png)
    
-   The **London** table contains the information for all musicals that are on show in London West End; it has 8 columns: 
-   - Title
-   - Type
-   - Description
-   - Duration
-   - Lowest Price
-   - Highest Price
-   - Booking Link
-   - Age Appropriate
+   The **Date** table contains the time period that a musical is going to be in theater; it has THREE columns: 
+   - Name : represents the name of the musical
+   - Start Date : represents the time of the musical's debut (in format YY-MM-DD)
+   - End Date : represents the last day the musical is going to be in theater (in format YY-MM-DD)
    
-   The **OnBroadway** table contains the information for all musicals that are on show in NYC; it has the same columns as table London. The **OffBroadway** table contains the information for all musicals that are on show in other cities in the US. The **Price** table contains the price range for all musicals in the database.
+   The **Muscials** table contains the information for all musicals that are stored in the database; it has SEVEN columns: 
+   - Title : represents the name of the musical
+   - City : represents the city where the musical is showed （Values: New York City, London, Other Cities in the US）
+   - Type of Musical : represents the genre of the musical  （Values: Romance, Disney, Teen, History, Horror, Magic, Crime, Comedy）
+   - Description : represents a full description of the musical, including background context and content
+   - Duration : represents how long the musical is (in hours)
+   - minAge : represents the age appropriate for the musical 
+   - On Tour : a boolean value representing if the musical is on tour
+   
+   The **Price** table contains the price range for all musicals; it has FOUR columns: 
+   - Name : represents the name of the musical
+   - Lowest Price : represents the lowest ticket price for the musical 
+   - Highest Price : represents the highest ticket price for the musical 
+   - Link : a link to ticketmaster.com for booking the tickets of the musical
    
 
 ### Demo
