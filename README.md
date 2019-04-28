@@ -4,6 +4,11 @@ created: 04/14/2019
 
 updated: 04/27/2019
 
+## Project Motivation
+
+Broadway musicals are getting more popular nowadays, including not only the ones in the US, but also those worldwide. I am a huge fan of broadway musicals, and I had lots of experience booking tickets online. However, none of the websites I have used are very efficient and user-friendly. Most of the time, nothing but the names of the musicals are displayed on the home page, which is not helpful at all for people to decide which show they are interested in. In order to check if the type of the musicals fits my preference and if the ticket price is affordable, I have to go down the entire list and click on each musical one by one. This whole process is very time-consuming and it is not a good user experience for people who are new to broadway musicals. As a solution to this problem, this project aims to design a new website that can filter out musicals quickly and provide users with automatic smart suggestions that better fit the users’ preferences.
+
+
 ## Required Module
 
    This project is using node.js module, express.js module, and sqlite3 module. In order to run the project on your local machine, you need to have all three modules installed. To install, use terminal commands: 
@@ -92,17 +97,4 @@ The Ticket page can be accessed from any other pages in this website, by clickin
    - Lowest Price : represents the lowest ticket price for the musical 
    - Highest Price : represents the highest ticket price for the musical 
    - Link : a link to ticketmaster.com for booking the tickets of the musical
-   
 
-### Demo
-
-![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo1_04:14.gif)
-
-
-![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo2_04:14.gif)
-
-
-
-## Future Direction
-
-   One major area that needs future work is to link the front-end webpage with the backend database. In the Matching Quiz section, quiz result needs to be queried from the database using user's answer for the quiz questions. In the Browse section, all information of musicals needs to be queried from the database and displayed dynamically on the webpage. Filter also needs to be added so that users can filter musicals based on their perferences. In the Ticket section, booking link for all musicals also need to be queried from the database.
