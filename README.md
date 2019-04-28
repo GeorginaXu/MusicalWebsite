@@ -20,11 +20,14 @@ updated: 04/27/2019
    
    
 
-## Current Functionality
+## Website Structure
 
    Currently, only the front-end of all webpages were implemented. The Match button in the navigation bar will take users to the matching quiz. The matching quiz webpage is not connected to the sqlite database yet, so it cannot query data based on user's answers. The Browse button in the navigation bar will take users to browse.html, which allows users to browse all musicals that are currently in theature. The Ticket button in the navigation bar will take users to tickets.html, which provides users the link to book tickets for their chosen musical. 
-   
-   In addition, the sqlite database was also built and the file is called **Musicals.db**. The database contains THREE tables:
+ 
+
+## Database Structure
+ 
+   The database was built using SQLite and SQLite Studio. The database file is stored as a file called **Musicals.db**. It contains THREE tables:
    
    - Date 
    
@@ -38,7 +41,7 @@ updated: 04/27/2019
    
    ![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/price_table.png)
    
-   The **Date** table contains the time period that a musical is going to be in theater; it has 3 columns: 
+   The **Date** table contains the time period that a musical is going to be in theater; it has THREE columns: 
    - Name : represents the name of the musical
    - Start Date : represents the time of the musical's debut (in format YY-MM-DD)
    - End Date : represents the last day the musical is going to be in theater (in format YY-MM-DD)
@@ -52,7 +55,11 @@ updated: 04/27/2019
    - minAge : represents the age appropriate for the musical 
    - On Tour : a boolean value representing if the musical is on tour
    
-   The **Price** table contains the price range for all musicals; it has 3 columns: 
+   The **Price** table contains the price range for all musicals; it has FOUR columns: 
+   - Name : represents the name of the musical
+   - Lowest Price : represents the lowest ticket price for the musical 
+   - Highest Price : represents the highest ticket price for the musical 
+   - Link : a link to ticketmaster.com for booking the tickets of the musical
    
 
 ### Demo
