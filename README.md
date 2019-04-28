@@ -37,7 +37,17 @@ The Matching Quiz has five questions, each with different number of options. The
 
 ### Musical Profile Page
 
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/quiz-result.gif)
+
+By clicking the title of a musical, the website will take the user to a profile page for the musical they clicked. The profile page contains an image of the musical, the name, its opening/closing date, duration, and a detailed description. In addition, the profile page also contains a Ticket Booking button which takes the user to the ticketmaster website.
+
+
 ### Browse Page
+
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/browse.gif)
+
+The Browse page can be accessed from any other pages in this website. It shows the entire list of musicals that are stored in the database. There is a filtering bar on top of the page, with four filtering conditions, which enables the user to filter out musicals based on Location, Type, Age Range, and Price. 
+
 
 ### Tickets Page
  
