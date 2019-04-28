@@ -22,7 +22,15 @@ updated: 04/27/2019
 
 ## Website Structure
 
-   Currently, only the front-end of all webpages were implemented. The Match button in the navigation bar will take users to the matching quiz. The matching quiz webpage is not connected to the sqlite database yet, so it cannot query data based on user's answers. The Browse button in the navigation bar will take users to browse.html, which allows users to browse all musicals that are currently in theature. The Ticket button in the navigation bar will take users to tickets.html, which provides users the link to book tickets for their chosen musical. 
+### Home Page
+
+### Matching Quiz
+
+### Musical Profile Page
+
+### Browse Page
+
+### Tickets Page
  
 
 ## Database Structure
