@@ -24,7 +24,16 @@ updated: 04/27/2019
 
 ### Home Page
 
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/front-page.gif)
+
+The Home Page contains a top navigation bar with five tabs --- HOME, ABOUT, MATCH, BROWSE, TICKET. It has a website header, a slide show with 6 musical images, an About section, and a button to the Matching Quiz.
+
+
 ### Matching Quiz
+
+![](https://github.com/GeorginaXu/MusicalWebsite/blob/master/demo/quiz-page.gif)
+
+The Matching Quiz has five questions, each with different number of options. The user can select the answers that match with their own interests. After clicking the Submit button, the website will provide the user a smart suggestion about what musical to watch, based on their quiz answers.
 
 ### Musical Profile Page
 
